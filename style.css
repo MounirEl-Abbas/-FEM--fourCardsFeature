@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
+
+:root {
+  --red: hsl(0, 78%, 62%);
+  --cyan: hsl(180, 62%, 55%);
+  --orange: hsl(34, 97%, 64%);
+  --blue: hsl(212, 86%, 64%);
+
+  --veryDarkBlue: hsl(234, 12%, 34%);
+  --grayishBlue: hsl(229, 6%, 66%);
+  --veryLightGray: hsl(0, 0%, 98%);
+
+  --ff: "Poppins", sans-serif;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
+  background-color: var(--veryLightGray);
+  font-family: var(--ff);
+  font-size: 15px;
+}
+.container {
+  margin: 50px 35px;
+}
+.text-container {
+  margin-bottom: 50px;
+  color: var(--grayishBlue);
+  text-align: center;
+}
+.text-container > h1 {
+  line-height: 1em;
+  font-size: 22px;
+  font-weight: 400;
+}
+.text-container > h2 {
+  color: var(--veryDarkBlue);
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+/*
+Individual Cards
+*/
+.card {
+  box-shadow: var(--grayishBlue) 1px 4px 6px 0px;
+  border-radius: 5px;
+  height: 230px;
+  position: relative;
+  padding: 20px 23px;
+  max-width: 600px;
+  margin: 0 auto 30px auto;
+}
+.card > h2 {
+  color: var(--veryDarkBlue);
+  padding-bottom: 0.5em;
+}
+.card > p {
+  color: var(--grayishBlue);
+  font-size: 14px;
+}
+.card > img {
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+}
+.card:nth-child(1) {
+  border-top: var(--cyan) 4px solid;
+}
+.middle-column .card:nth-child(1) {
+  border-top: var(--red) 4px solid;
+}
+.middle-column .card:nth-child(2) {
+  border-top: var(--orange) 4px solid;
+}
+.card:nth-child(3) {
+  border-top: var(--blue) 4px solid;
+}
+
+@media (min-width: 992px) {
+  .container {
+    margin: 0 10px;
+  }
+  .text-container {
+    max-width: 520px;
+    margin: auto;
+    margin-top: 60px;
+  }
+  .text-container > h1,
+  .text-container > h2 {
+    font-size: 28px;
+  }
+  .text-container > p {
+    font-size: 16px;
+  }
+  .card-container {
+    max-width: 1200px;
+    height: 700px;
+    margin: auto;
+    /* outline: 2px solid red; */
+    display: grid;
+    grid-template-columns: 1fr 30px 1fr 30px 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "first-column . middle-column . last-column";
+    align-items: center;
+  }
+  .card {
+    box-shadow: var(--grayishBlue) 1px 4px 15px 2px;
+  }
+  .card:nth-child(1) {
+    grid-area: first-column;
+  }
+  .middle-column {
+    grid-area: middle-column;
+    /* margin: 0 15px; */
+  }
+  .card:nth-child(3) {
+    grid-area: last-column;
+  }
+}
